@@ -20,7 +20,7 @@ There's a ton of details in the legged_gym repo that we probably want to keep, l
 ### Controls
  - Cassie already has PD built in. But it needs the LPF. This should probably be implemented in rsl_rl/algorithms/ppo/act and just filter it before returning the action.
  - Action/Outcome history needs to be implemented into legged_gym/envs/legged_robot/_init_buffers as attributes. Should put trajectory optimizations inside there too and just have a boot-up loading util function.
- - Need to be able to set speed controls: 
+ - Need to be able to set speed controls: just restrict to x movement for a straight line and make speed ranges very restrictive in commands/ranges in the legged config file
  - Need to also input the trajectory optimizations, short I/O, and long I/O latent representation into the PPO 'act'
    - Save this information to infos returned by env.step
    - Integrate CNN for long-history later, just use short-history for now. When we do, build it into the same prob module as the PPO.
